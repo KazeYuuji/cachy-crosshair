@@ -1,0 +1,47 @@
+#!/bin/bash
+# AppRun — untuk AppImage Cachy Crosshair
+# Deteksi AppDir, set PYTHONPATH, run main_gui.py
+
+SELF="$(readlink -f "$0")"
+APPDIR="$(dirname "$SELF")"
+# APPDIR is .../cachy-crosshair.AppDir, AppRun lives inside it
+# Sometimes APPDIR is $APPDIR itself when run via appimagetool
+if [ -d "$APPDIR/usr" ]; then
+    : # already inside AppDir
+else
+    APPDIR="$(dirname "$APPDIR")"
+fi
+
+# Fallback: if run as ./AppRun directly
+if [ ! -d "$APPDIR/usr" ]; then
+    APPDIR="$(cd "$(dirname "$0")" && pwd)"
+fi
+
+export PYTHONPATH="$APPDIR/usr/src:$APPDIR/usr/src:$PYTHONPATH"
+export QT_QPA_PLATFORMTHEME="kde"
+export QT_AUTO_SCREEN_SCALE_FACTOR="1"
+
+# Prefer bundled python if exists
+if [ -x "$APPDIR/usr/bin/python3" ]; then
+    PYTHON="$APPDIR/usr/bin/python3"
+elif command -v python3 &>/dev/null; then
+    PYTHON="python3"
+else
+    PYTHON="python"
+fi
+
+# Pass through args, default to GUI
+if [ $# -eq 0 ]; then
+    exec "$PYTHON" "$APPDIR/usr/src/main_gui.py" "$@"
+else
+    # allow CLI mode via launcher
+    case "$1" in
+        --launcher|--cli)
+            shift
+            exec "$PYTHON" "$APPDIR/usr/src/launcher.py" "$@"
+            ;;
+        *)
+            exec "$PYTHON" "$APPDIR/usr/src/main_gui.py" "$@"
+            ;;
+    esac
+fi

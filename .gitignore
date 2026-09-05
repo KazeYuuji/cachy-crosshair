@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+*.AppImage
+*.AppDir/
+squashfs-root/
+
+# but keep packaging AppImage build script
+!packaging/appimage/build-appimage.sh
+!packaging/appimage/AppRun
+
+# AppImage large - ignore dist
+dist/
+
+# Config
+.config/
+.idea/
+.vscode/
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+hermes-memory.db
+mydatabase.db
+
+# Keep presets example
+!src/shared/presets/*.json

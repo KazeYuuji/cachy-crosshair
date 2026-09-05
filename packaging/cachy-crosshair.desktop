@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Cachy Crosshair
+GenericName=Crosshair Overlay
+Comment=Crosshair overlay transparan untuk gaming di CachyOS (KDE Wayland, Hyprland, X11)
+Exec=cachy-crosshair
+Icon=cachy-crosshair
+Terminal=false
+Categories=Game;Utility;
+Keywords=crosshair;overlay;gaming;fps;cachyos;
+StartupWMClass=cachy-crosshair
+X-AppImage-Version=0.1.0

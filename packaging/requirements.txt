@@ -1,0 +1,10 @@
+# requirements untuk Cachy Crosshair — AppImage / dev
+# System CachyOS: sudo pacman -S python-pyqt6 layer-shell-qt (lebih ringan)
+# pip fallback: jika pacman tidak mau, pip bisa bundle ke AppDir
+
+PyQt6>=6.6.0
+# PySide6 alternative (opsional)
+# PySide6>=6.6.0
+
+# Untuk build AppImage (tidak di-bundle, hanya dev)
+# appimagetool di-download otomatis oleh build-appimage.sh

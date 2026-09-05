@@ -1,0 +1,14 @@
+{
+  "type": "dot",
+  "color": "#FF0000",
+  "size": 6,
+  "thickness": 2,
+  "opacity": 0.9,
+  "gap": 4,
+  "outline": true,
+  "outline_color": "#000000",
+  "outline_thickness": 1,
+  "center_dot_size": 4,
+  "offset_x": 0,
+  "offset_y": 0
+}
