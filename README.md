@@ -87,8 +87,5 @@ cachy-crosshair/
 - Crosshair tidak muncul → coba `CACHY_CROSSHAIR_DEBUG=1 ./AppImage` (layar merah tints), atau `QT_QPA_PLATFORM=xcb ./AppImage`
 - Tray tidak ada → `QSystemTrayIcon::setVisible: No Icon` → install `libappindicator`
 
-## 📄 License MIT
-Hermes Agent workflow — 2026-09-03 built 16:25 CachyOS KDE Wayland
-
 ## Workflow
 Docs lengkap di `docs/` — PRD, tech-stack Wayland, roadmap. Original workflow persisten di `crosshair-workflow/` (private).
